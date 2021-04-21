@@ -1,0 +1,60 @@
+.homePage {
+  padding: 0 4rem;
+  height: calc(100vh - 6.5rem); //o CALC() faz um cálculo para que a home ocupe todo o espaço horizontal VH menos o tamanh do header 6.5rem
+  overflow-y: scroll; //para que o scroll da página seja somente dentro desta classe (header e player não sofrem scroll, são fixos)
+
+  h2 {
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.latestEpisodes {
+  ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); //o grid terá 2 colunas de 1fr iguais
+    gap: 1.5rem;
+   
+    li {
+      background: var(--white);
+      border: 1px solid var(--gray-100);
+      padding: 1.25rem;
+      border-radius: 1.5rem;
+      position: relative;   
+      display: flex;
+      align-items: center;
+   
+      img {
+        width: 6rem;
+        height: 6rem;
+        border-radius: 1rem;
+      }
+
+      .episodeDetails {
+        flex: 1;
+        margin-left: 1rem;
+        a {
+          display: block;
+          color: var(--gray-800);
+          font-family: Lexend, sans-serif;
+          font-weight: 600;
+          text-decoration: none;
+          line-height: 1.4rem;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+        p {
+          font-size: 0.875rem;
+          margin-top: 0.5rem;
+          max-width: 70%; //para a descrição não sobrepor o botão de play do card
+          white-space: nowrap; //para NUNCA quebrar para a linha de baixo
+          overflow: hidden; //o que passar dos 70% de limite não ser visível para usuário
+          text-overflow: ellipsis; //eliipsis é reticências, para quando o texto der overflow sem quebrar linha
+        }
+      }
+    }
+  }
+}
