@@ -4,7 +4,7 @@ export function PLayer() {
   return (
     <div className={styles.playerContainer}>
       <header>
-        <img src="./playing.svg" alt="Playing now"/>
+        <img src="/playing.svg" alt="Playing now"/>
         <strong>Playing Now</strong>
       </header>
 
@@ -23,19 +23,19 @@ export function PLayer() {
 
         <div className={styles.buttons}>
           <button type="button">
-            <img src="shuffle.svg" alt="Shuffle"/>
+            <img src="/shuffle.svg" alt="Shuffle"/>
           </button>
           <button type="button">
-            <img src="play-previous.svg" alt="Play Previous"/>
+            <img src="/play-previous.svg" alt="Play Previous"/>
           </button>
           <button type="button" className={styles.playButton}>
-            <img src="play.svg" alt="Play"/>
+            <img src="/play.svg" alt="Play"/>
           </button>
           <button type="button">
-            <img src="play-next.svg" alt="Play Next"/>
+            <img src="/play-next.svg" alt="Play Next"/>
           </button>
           <button type="button">
-            <img src="repeat.svg" alt="Repeat"/>
+            <img src="/repeat.svg" alt="Repeat"/>
           </button>
         </div>
       </footer>
