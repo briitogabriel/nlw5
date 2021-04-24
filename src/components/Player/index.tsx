@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { useContext } from 'react';
+import { useContext, useRef, useEffect } from 'react';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 
@@ -8,7 +8,19 @@ import { PlayerContext } from '../../contexts/PlayerContext';
 import styles from './styles.module.scss';
 
 export function Player() {
-  const { episodeList, currentEpisodeIndex, isPlaying, togglePlay } = useContext(PlayerContext); //puxa a lista vinda do contexto
+  const audioRef = useRef<HTMLAudioElement>(null); //utilizando ref para alternar status do áudio
+  const { episodeList, currentEpisodeIndex, isPlaying, togglePlay, setPlayingStatus } = useContext(PlayerContext); //puxa a lista vinda do contexto
+  
+  useEffect (() => { //monitorando o efeito apresentado no ref criado acima para alterar o áudio tocando
+    if (!audioRef.current) {
+      return;
+    } if (isPlaying) {
+      audioRef.current.play();
+    } else {
+      audioRef.current.pause();
+    }
+  }, [isPlaying]) //isPlaying altera, então executa o useEffect
+
   const episode = episodeList[currentEpisodeIndex]; //executa o episódio de index zero da lista
 
 
@@ -51,7 +63,10 @@ export function Player() {
         { episode && ( //só vai executar áudio se episode for true (&&)
           <audio
             src={episode.url}
+            ref={audioRef}
             autoPlay
+            onPlay={() => setPlayingStatus(true)}
+            onPause={() => setPlayingStatus(false)}
           />
         )} 
 
