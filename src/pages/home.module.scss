@@ -1,6 +1,6 @@
 .homePage {
   padding: 0 4rem;
-  height: calc(100vh - 6.5rem); //o CALC() faz um cálculo para que a home ocupe todo o espaço horizontal VH menos o tamanh do header 6.5rem
+  height: calc(100vh - 6.5rem); //o CALC() faz um cálculo para que a home ocupe todo o espaço horizontal VH menos o tamanho do header 6.5rem
   overflow-y: scroll; //para que o scroll da página seja somente dentro desta classe (header e player não sofrem scroll, são fixos)
 
   h2 {
